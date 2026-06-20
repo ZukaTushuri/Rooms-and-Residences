@@ -24,7 +24,6 @@
     ['sectors.html', 'Sectors'],
     ['projects.html', 'Projects'],
     ['partners.html', 'Brands &amp; Partners'],
-    ['catalogues.html', 'Catalogues'],
     ['contact.html', 'Contact'],
   ];
 
@@ -91,7 +90,7 @@
             </div>
           </div>
           ${col('Explore', [['products.html','Products &amp; Solutions'],['services.html','Services'],['sectors.html','Sectors'],['projects.html','Projects']])}
-          ${col('Company', [['about.html','About'],['partners.html','Brands &amp; Partners'],['catalogues.html','Catalogues'],['contact.html','Contact']])}
+          ${col('Company', [['about.html','About'],['partners.html','Brands &amp; Partners'],['contact.html','Contact']])}
           <div>
             <h4>Get in touch</h4>
             <ul>
@@ -178,7 +177,22 @@
     const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
 
     document.addEventListener('click', e => {
-      if (e.target.closest('[data-modal-open]')) { e.preventDefault(); open(); }
+      const opener = e.target.closest('[data-modal-open]');
+      if (opener) {
+        e.preventDefault();
+        const cat = opener.dataset.catalogue;
+        const titleEl = modal.querySelector('#cat-title');
+        const sel = modal.querySelector('#c-cat');
+        if (cat && sel) {
+          const match = [...sel.options].find(o => o.text.includes(cat));
+          if (match) sel.value = match.value;
+          if (titleEl) titleEl.textContent = `Request the ${cat} catalogue`;
+        } else {
+          if (sel) sel.selectedIndex = 0;
+          if (titleEl) titleEl.textContent = 'Download the catalogue';
+        }
+        open();
+      }
       if (e.target.closest('[data-modal-close]')) { close(); }
     });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
