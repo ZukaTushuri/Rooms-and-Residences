@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show *)",
+      "Bash(pdftotext -layout \"visual style_RR.pdf\" -)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"premium luxury interior design architecture service editorial minimal\" --design-system --persist -p \"Rooms & Residences\")",
+      "Bash(pip list *)",
+      "Bash(python *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  }
+}
