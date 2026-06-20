@@ -55,11 +55,13 @@
     toggle.addEventListener('click', () => {
       const open = document.body.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
     });
     header.querySelectorAll('.nav a').forEach(a =>
       a.addEventListener('click', () => {
         document.body.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       })
     );
 
