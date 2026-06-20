@@ -19,11 +19,11 @@
   const NAV = [
     ['index.html', 'Home'],
     ['about.html', 'About'],
-    ['products.html', 'Products &amp; Solutions'],
+    ['products.html', 'Products'],
     ['services.html', 'Services'],
     ['sectors.html', 'Sectors'],
     ['projects.html', 'Projects'],
-    ['partners.html', 'Brands &amp; Partners'],
+    ['partners.html', 'Brands'],
     ['contact.html', 'Contact'],
   ];
 
@@ -89,8 +89,8 @@
               ${social('Pinterest','M12 2a10 10 0 0 0-3.65 19.31c-.05-.79-.09-2 .02-2.86.1-.78.66-4.97.66-4.97s-.17-.34-.17-.84c0-.79.46-1.38 1.03-1.38.49 0 .72.37.72.8 0 .49-.31 1.22-.47 1.9-.13.57.29 1.03.85 1.03 1.02 0 1.8-1.08 1.8-2.63 0-1.37-.99-2.33-2.4-2.33a2.49 2.49 0 0 0-2.6 2.5c0 .5.19.83.39 1.18.07.11.08.16.06.28-.02.08-.08.32-.1.41-.04.13-.13.18-.29.11-.81-.33-1.18-1.21-1.18-2.2 0-1.64 1.38-3.6 4.12-3.6 2.2 0 3.65 1.59 3.65 3.3 0 2.26-1.26 3.95-3.11 3.95-.62 0-1.21-.34-1.41-.72l-.38 1.52c-.14.53-.51 1.19-.77 1.6A10 10 0 1 0 12 2Z')}
             </div>
           </div>
-          ${col('Explore', [['products.html','Products &amp; Solutions'],['services.html','Services'],['sectors.html','Sectors'],['projects.html','Projects']])}
-          ${col('Company', [['about.html','About'],['partners.html','Brands &amp; Partners'],['contact.html','Contact']])}
+          ${col('Explore', [['products.html','Products'],['services.html','Services'],['sectors.html','Sectors'],['projects.html','Projects']])}
+          ${col('Company', [['about.html','About'],['partners.html','Brands'],['contact.html','Contact']])}
           <div>
             <h4>Get in touch</h4>
             <ul>
