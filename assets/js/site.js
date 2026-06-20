@@ -52,18 +52,41 @@
     document.body.prepend(header);
 
     const toggle = header.querySelector('.nav-toggle');
+    const navEl = header.querySelector('.nav');
+
+    function openNav() {
+      document.body.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     toggle.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
+      document.body.classList.contains('nav-open') ? closeNav() : openNav();
     });
     header.querySelectorAll('.nav a').forEach(a =>
-      a.addEventListener('click', () => {
-        document.body.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      })
+      a.addEventListener('click', () => { closeNav(); })
     );
+
+    // Swipe-right on the nav overlay closes the menu (prevents browser back-navigation)
+    let tsX = 0, tsY = 0;
+    navEl.addEventListener('touchstart', e => {
+      tsX = e.changedTouches[0].clientX;
+      tsY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    navEl.addEventListener('touchmove', e => {
+      if (document.body.classList.contains('nav-open')) e.preventDefault();
+    }, { passive: false });
+    navEl.addEventListener('touchend', e => {
+      if (!document.body.classList.contains('nav-open')) return;
+      const dx = e.changedTouches[0].clientX - tsX;
+      const dy = e.changedTouches[0].clientY - tsY;
+      if (dx > 60 && Math.abs(dy) < Math.abs(dx)) closeNav();
+    }, { passive: true });
 
     // Solid header on scroll (or always solid if page requests it)
     const forceSolid = document.body.dataset.solidHeader === 'true';

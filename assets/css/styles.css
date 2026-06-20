@@ -213,8 +213,13 @@ body.nav-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45de
     transform: translateX(100%); transition: transform var(--dur) var(--ease);
     padding: 5rem var(--gutter);
     z-index: var(--z-nav);
+    overscroll-behavior: none;
   }
   body.nav-open .nav { transform: translateX(0); }
+  /* Remove backdrop-filter while nav is open — backdrop-filter creates a containing block
+     that confines position:fixed children to the header element (not the viewport). */
+  body.nav-open .site-header,
+  body.nav-open .site-header.solid { backdrop-filter: none; }
   body.nav-open { overflow: hidden; }
   .nav a { font-size: 1.1rem; opacity: 1; }
   .nav-cta { border-color: var(--brass-bright); }
