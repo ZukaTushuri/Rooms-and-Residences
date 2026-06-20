@@ -95,16 +95,16 @@
           <div>
             <h4>Get in touch</h4>
             <ul>
-              <li><a href="tel:+97100000000">+971 (0)0 000 0000</a></li>
+              <li><a href="tel:+995322000000">+995 (32) 200 0000</a></li>
               <li><a href="mailto:hello@roomsandresidences.com">hello@roomsandresidences.com</a></li>
-              <li>Design Studio &amp; Showroom</li>
+              <li>Tbilisi, Georgia</li>
               <li><a href="#" data-modal-open>Request Catalogue →</a></li>
             </ul>
           </div>
         </div>
         <div class="foot-bottom">
           <span>© ${new Date().getFullYear()} Rooms &amp; Residences. All rights reserved.</span>
-          <span>Global sourcing · Local execution · China — Turkey — Europe</span>
+          <span>Georgia-based · China-sourced · Delivered locally</span>
         </div>
       </div>`;
     document.body.appendChild(footer);
